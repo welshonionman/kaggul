@@ -12,9 +12,9 @@ from kaggle.api.kaggle_api_extended import KaggleApi
 
 
 def init(kaggle_json_path: str) -> None:
-    os.makedirs("/root/.kaggle", exist_ok=True)
-    shutil.copy(kaggle_json_path, "/root/.kaggle")
-    os.chmod("/root/.kaggle/kaggle.json", 0o600)
+    os.makedirs("~/.kaggle", exist_ok=True)
+    shutil.copy(kaggle_json_path, "~/.kaggle")
+    os.chmod("~/.kaggle/kaggle.json", 0o600)
 
 
 def date():
