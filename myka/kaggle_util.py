@@ -51,7 +51,7 @@ def download_comp_datasets(comp_name: str, save_dir: str = "/kaggle/input") -> N
 
     Args:
         comp_name (str): コンペティション名
-        save_dir (str): 保存先ディレクトリ
+        save_dir (str): 保存先ディレクトリ (default: /kaggle/input)
     """
 
     __subprocess_run(
@@ -74,7 +74,7 @@ def download_datasets(dataset_id: str, save_dir: str = "/kaggle/input") -> None:
 
     Args:
         dataset_id (str): データセットID
-        save_dir (str): 保存先ディレクトリ
+        save_dir (str): 保存先ディレクトリ (default: /kaggle/input)
     """
     dataset_name = dataset_id.split("/")[1]
     __subprocess_run(
@@ -116,7 +116,7 @@ def pull_notebook(kernel_id: str, save_dir: str = "/kaggle/reference/") -> None:
 
     Args:
         kernel_id (str): notebookのID <owner>/<kernel-name>
-        save_dir (str): 保存先ディレクトリ
+        save_dir (str): 保存先ディレクトリ (default: /kaggle/reference)
     """
     os.makedirs(save_dir, exist_ok=True)
     kernel_name = kernel_id.rstrip("/").split("/")[-1]
@@ -178,7 +178,7 @@ def pull_model(url: str, save_dir: str = "/kaggle/input/") -> None:
 
     Args:
         url (str): モデルのURL
-        save_dir (str): モデルの保存先ディレクトリ
+        save_dir (str): モデルの保存先ディレクトリ (default: /kaggle/input)
     """
 
     owner = url.split("/")[4].lower()
@@ -207,7 +207,7 @@ def submission(comp_name: str, file_path: str, description: str = "submission") 
     Args:
         comp_name (str): コンペティション名
         file_path (str): 提出ファイルのパス
-        description (str): 提出ファイルの説明
+        description (str): 提出ファイルの説明 (default: "submission")
     """
     __subprocess_run(
         f"kaggle competitions submit {comp_name} -f {file_path} -m {description}"
@@ -223,7 +223,7 @@ def measure_submission_elapsed_time(competition: str, idx: str = 0) -> None:
 
     Args:
         competition (str): コンペティション名
-        idx (str): サブミット番号
+        idx (str): サブミット番号 (default: 0)
     """
     api = KaggleApi()
     api.authenticate()
