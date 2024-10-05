@@ -12,8 +12,7 @@ from kaggle.api.kaggle_api_extended import KaggleApi
 
 
 def init(kaggle_json_path: str) -> None:
-    """各関数を使うための前準備
-
+    """
     各関数を使うための前準備を行います。
     kaggleから取得したkaggle.jsonを~/.kaggleにコピーし、権限を600に設定します。
     kaggle.jsonを~/.kaggleにコピーし、権限を600に設定します。
@@ -43,8 +42,7 @@ def __subprocess_run(command: str) -> None:
 
 
 def download_comp_datasets(comp_name: str, save_dir: str = "/kaggle/input") -> None:
-    """指定したコンペティションのデータセットをダウンロードする
-
+    """
     指定したコンペティションのデータセットをダウンロードします。
     データセットはzipファイルでダウンロード後に解凍して格納されます。
     comp_nameはコンペティションのURLの末尾にある文字列です。
@@ -65,8 +63,7 @@ def download_comp_datasets(comp_name: str, save_dir: str = "/kaggle/input") -> N
 
 
 def download_datasets(dataset_id: str, save_dir: str = "/kaggle/input") -> None:
-    """kaggle datasetをダウンロードする
-
+    """
     kaggle datasetをダウンロードします。
     dataset_idは<owner>/<dataset-name>の形式で指定します。
     <owner>/<dataset-name>はダウンロードしたいデータセットのURLの末尾にある文字列です。
@@ -83,8 +80,7 @@ def download_datasets(dataset_id: str, save_dir: str = "/kaggle/input") -> None:
 
 
 def create_datasets(userid: str, folder: str) -> None:
-    """kaggle datasetを作成する
-
+    """
     kaggle datasetを作成します。データセットはprivateの状態で作成されます。
     バージョンの更新については現在未対応です。
 
@@ -108,8 +104,7 @@ def create_datasets(userid: str, folder: str) -> None:
 
 
 def pull_notebook(kernel_id: str, save_dir: str = "/kaggle/reference/") -> None:
-    """public notebookをダウンロードする
-
+    """
     public notebookをダウンロードします。
     kernel_idは<owner>/<kernel-name>の形式で指定します。
     <owner>/<kernel-name>はダウンロードしたいnotebookのURLの末尾にある文字列です。
@@ -133,8 +128,7 @@ def push_notebook(
     comp: str = "",
     random_suffix: bool = True,
 ) -> None:
-    """notebookをkaggleにプッシュする
-
+    """
     notebookをkaggleにプッシュします。notebookはprivateの状態でプッシュされます。
 
     datasetsにはnotebookにアタッチするデータセットのリストを指定します。
@@ -173,7 +167,6 @@ def push_notebook(
 
 def pull_model(url: str, save_dir: str = "/kaggle/input/") -> None:
     """
-
     kaggle modelをダウンロードする
 
     Args:
@@ -199,8 +192,7 @@ def pull_model(url: str, save_dir: str = "/kaggle/input/") -> None:
 
 
 def submission(comp_name: str, file_path: str, description: str = "submission") -> None:
-    """csv submission competitionでcsvファイルを提出する
-
+    """
     csv submission competitionでcsvファイルを提出します。
     code competitionでは使用できません。
 
@@ -215,8 +207,7 @@ def submission(comp_name: str, file_path: str, description: str = "submission") 
 
 
 def measure_submission_elapsed_time(competition: str, idx: str = 0) -> None:
-    """サブミットを行った時からの経過時間を計測する
-
+    """
     サブミットを行った時からの経過時間を計測します。
     idxには最新のサブミットから数えて何番目のサブミットかを指定します。
     idx = 0(default)の場合は最新のサブミットを指定します。
