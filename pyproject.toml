@@ -5,6 +5,6 @@ readme = 'README.md'
 requires-python = '>=3.9'
 license = {file = 'LICENSE'}
 authors = [{name = 'Kazuki Negita', email = 'welshonionman@gmail.com'}]
-dependencies = [
-    'kaggle',
-]
+dynamic = ["dependencies"]
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
