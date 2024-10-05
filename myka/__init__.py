@@ -3,9 +3,9 @@ from myka.kaggle_util import (
     download_comp_datasets,
     download_datasets,
     init,
-    pull_kernel,
     pull_model,
-    push_kernel,
+    pull_notebook,
+    push_notebook,
     submission,
 )
 
@@ -14,8 +14,8 @@ __all__ = [
     "download_comp_datasets",
     "download_datasets",
     "init",
-    "pull_kernel",
+    "pull_notebook",
     "pull_model",
-    "push_kernel",
+    "push_notebook",
     "submission",
 ]
