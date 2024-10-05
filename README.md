@@ -1,1 +1,1 @@
-# mykagglelib
+# my_kaggle_util
