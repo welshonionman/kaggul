@@ -12,19 +12,22 @@ from kaggle.api.kaggle_api_extended import KaggleApi
 
 
 def init(kaggle_json_path: str) -> None:
+    """各関数を使うための前準備
+
+    各関数を使うための前準備を行います。
+    kaggleから取得したkaggle.jsonを~/.kaggleにコピーし、権限を600に設定します。
+    kaggle.jsonを~/.kaggleにコピーし、権限を600に設定します。
+
+    Args:
+        kaggle_json_path (str): kaggle.jsonのパス
+    """
+
     os.makedirs("~/.kaggle", exist_ok=True)
     shutil.copy(kaggle_json_path, "~/.kaggle")
     os.chmod("~/.kaggle/kaggle.json", 0o600)
 
 
-def date():
-    day = datetime.today().day
-    month = datetime.today().month
-    date = f"{month:02}{day:02}"
-    return date
-
-
-def subprocess_run(command: str) -> None:
+def __subprocess_run(command: str) -> None:
     try:
         subprocess.run(
             command,
@@ -40,7 +43,18 @@ def subprocess_run(command: str) -> None:
 
 
 def download_comp_datasets(comp_name: str, save_dir: str = "/kaggle/input") -> None:
-    subprocess_run(
+    """指定したコンペティションのデータセットをダウンロードする
+
+    指定したコンペティションのデータセットをダウンロードします。
+    データセットはzipファイルでダウンロード後に解凍して格納されます。
+    comp_nameはコンペティションのURLの末尾にある文字列です。
+
+    Args:
+        comp_name (str): コンペティション名
+        save_dir (str): 保存先ディレクトリ
+    """
+
+    __subprocess_run(
         f"kaggle competitions download {comp_name} --path {save_dir}/{comp_name}/"
     )
 
@@ -51,13 +65,33 @@ def download_comp_datasets(comp_name: str, save_dir: str = "/kaggle/input") -> N
 
 
 def download_datasets(dataset_id: str, save_dir: str = "/kaggle/input") -> None:
+    """kaggle datasetをダウンロードする
+
+    kaggle datasetをダウンロードします。
+    dataset_idは<owner>/<dataset-name>の形式で指定します。
+    <owner>/<dataset-name>はダウンロードしたいデータセットのURLの末尾にある文字列です。
+
+
+    Args:
+        dataset_id (str): データセットID
+        save_dir (str): 保存先ディレクトリ
+    """
     dataset_name = dataset_id.split("/")[1]
-    subprocess_run(
+    __subprocess_run(
         f"kaggle datasets download {dataset_id} --unzip --quiet --path {save_dir}/{dataset_name}"
     )
 
 
 def create_datasets(userid: str, folder: str) -> None:
+    """kaggle datasetを作成する
+
+    kaggle datasetを作成します。データセットはprivateの状態で作成されます。
+    バージョンの更新については現在未対応です。
+
+    Args:
+        userid (str): kaggle ID
+        folder (str): データセットのディレクトリ
+    """
     title = folder.rstrip("/").split("/")[-1].replace("_", "-")
     print(title)
 
@@ -69,28 +103,56 @@ def create_datasets(userid: str, folder: str) -> None:
     with open(f"{folder}/dataset-metadata.json", "w") as js:
         json.dump(dict_json, js, indent=4)
 
-    subprocess_run(f"kaggle datasets create -p {folder} --quiet --dir-mode zip")
+    __subprocess_run(f"kaggle datasets create -p {folder} --quiet --dir-mode zip")
     os.remove(f"{folder}/dataset-metadata.json")
 
 
-def pull_kernel(kernel_id: str, save_dir: str = "/kaggle/reference/") -> None:
+def pull_notebook(kernel_id: str, save_dir: str = "/kaggle/reference/") -> None:
+    """public notebookをダウンロードする
+
+    public notebookをダウンロードします。
+    kernel_idは<owner>/<kernel-name>の形式で指定します。
+    <owner>/<kernel-name>はダウンロードしたいnotebookのURLの末尾にある文字列です。
+
+    Args:
+        kernel_id (str): notebookのID <owner>/<kernel-name>
+        save_dir (str): 保存先ディレクトリ
+    """
     os.makedirs(save_dir, exist_ok=True)
-    fname = kernel_id.rstrip("/").split("/")[-1]
+    kernel_name = kernel_id.rstrip("/").split("/")[-1]
 
-    subprocess_run(f"kaggle kernels pull {kernel_id} --path /tmp")
+    __subprocess_run(f"kaggle kernels pull {kernel_id} --path /tmp")
 
-    shutil.move(f"/tmp/{fname}.ipynb", f"{save_dir}/{fname}.ipynb")
+    shutil.move(f"/tmp/{kernel_name}.ipynb", f"{save_dir}/{kernel_name}.ipynb")
 
 
-def push_kernel(
+def push_notebook(
     userid: str,
-    path: str,
+    notebook_path: str,
     datasets: list[str | None] = [],
     comp: str = "",
     random_suffix: bool = True,
 ) -> None:
-    shutil.copy(path, "/tmp/tmp.ipynb")
-    fname = Path(path)
+    """notebookをkaggleにプッシュする
+
+    notebookをkaggleにプッシュします。notebookはprivateの状態でプッシュされます。
+
+    datasetsにはnotebookにアタッチするデータセットのリストを指定します。
+    datasetsの要素は<owner>/<dataset-name>の形式で指定します。
+    <owner>/<dataset-name>はアタッチしたいデータセットのURLの末尾にある文字列です。
+
+    compにはコンペティション名を指定します。
+    random_suffixにはランダムなサフィックス（notebookファイル名の末尾に付加）をつけるかどうかを指定します。
+
+    Args:
+        userid (str): kaggle ID
+        notebook_path (str): notebookのパス
+        datasets (list[str | None]): データセットのリスト [<owner>/<dataset-name>, ...]
+        comp (str): コンペティション名
+        random_suffix (bool): ランダムなサフィックスをつけるかどうか
+    """
+    shutil.copy(notebook_path, "/tmp/tmp.ipynb")
+    fname = Path(notebook_path)
     rand = random.randint(1000, 9999) if random_suffix else ""
 
     with pkg_resources.open_text("myka.template", "kernel-metadata.json") as js:
@@ -105,11 +167,20 @@ def push_kernel(
     os.chdir("/tmp")
     with open("/tmp/kernel-metadata.json", "w") as js:
         json.dump(dict_json, js, indent=4)
-    subprocess_run("kaggle kernels push")
+    __subprocess_run("kaggle kernels push")
     os.remove("/tmp/kernel-metadata.json")
 
 
 def pull_model(url: str, save_dir: str = "/kaggle/input/") -> None:
+    """
+
+    kaggle modelをダウンロードする
+
+    Args:
+        url (str): モデルのURL
+        save_dir (str): モデルの保存先ディレクトリ
+    """
+
     owner = url.split("/")[4].lower()
     model_slug = url.split("/")[5].lower()
     framework = url.split("/")[7].lower()
@@ -122,18 +193,38 @@ def pull_model(url: str, save_dir: str = "/kaggle/input/") -> None:
     save_path = f"{save_dir}/{model}"
     print(save_path)
 
-    subprocess_run(
+    __subprocess_run(
         f"kaggle models instances versions download {model} --untar -p {save_path}"
     )
 
 
-def submission(comp_name: str, file_path: str, message: str = "submission") -> None:
-    subprocess_run(
-        f"kaggle competitions submit {comp_name} -f {file_path} -m {message}"
+def submission(comp_name: str, file_path: str, description: str = "submission") -> None:
+    """csv submission competitionでcsvファイルを提出する
+
+    csv submission competitionでcsvファイルを提出します。
+    code competitionでは使用できません。
+
+    Args:
+        comp_name (str): コンペティション名
+        file_path (str): 提出ファイルのパス
+        description (str): 提出ファイルの説明
+    """
+    __subprocess_run(
+        f"kaggle competitions submit {comp_name} -f {file_path} -m {description}"
     )
 
 
-def measure_submission_elapsed(competition: str, idx: str = 0) -> None:
+def measure_submission_elapsed_time(competition: str, idx: str = 0) -> None:
+    """サブミットを行った時からの経過時間を計測する
+
+    サブミットを行った時からの経過時間を計測します。
+    idxには最新のサブミットから数えて何番目のサブミットかを指定します。
+    idx = 0(default)の場合は最新のサブミットを指定します。
+
+    Args:
+        competition (str): コンペティション名
+        idx (str): サブミット番号
+    """
     api = KaggleApi()
     api.authenticate()
 
