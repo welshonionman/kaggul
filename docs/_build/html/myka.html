@@ -22,7 +22,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
-    <link rel="prev" title="my_kaggle_util documentation" href="index.html" /> 
+    <link rel="prev" title="myka" href="modules.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -44,18 +44,26 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">myka package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#myka.measure.submission_elapsed"><code class="docutils literal notranslate"><span class="pre">submission_elapsed()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#myka.create_datasets"><code class="docutils literal notranslate"><span class="pre">create_datasets()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#myka.download_comp_datasets"><code class="docutils literal notranslate"><span class="pre">download_comp_datasets()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#myka.download_datasets"><code class="docutils literal notranslate"><span class="pre">download_datasets()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#myka.init"><code class="docutils literal notranslate"><span class="pre">init()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#myka.pull_model"><code class="docutils literal notranslate"><span class="pre">pull_model()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#myka.pull_notebook"><code class="docutils literal notranslate"><span class="pre">pull_notebook()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#myka.push_notebook"><code class="docutils literal notranslate"><span class="pre">push_notebook()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#myka.submission"><code class="docutils literal notranslate"><span class="pre">submission()</span></code></a></li>
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">myka</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">myka package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-myka">myka module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#myka.create_datasets"><code class="docutils literal notranslate"><span class="pre">create_datasets()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#myka.download_comp_datasets"><code class="docutils literal notranslate"><span class="pre">download_comp_datasets()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#myka.download_datasets"><code class="docutils literal notranslate"><span class="pre">download_datasets()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#myka.init"><code class="docutils literal notranslate"><span class="pre">init()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#myka.pull_model"><code class="docutils literal notranslate"><span class="pre">pull_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#myka.pull_notebook"><code class="docutils literal notranslate"><span class="pre">pull_notebook()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#myka.push_notebook"><code class="docutils literal notranslate"><span class="pre">push_notebook()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#myka.submission"><code class="docutils literal notranslate"><span class="pre">submission()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-myka.measure">myka.measure module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#myka.measure.submission_elapsed"><code class="docutils literal notranslate"><span class="pre">submission_elapsed()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -74,6 +82,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">myka</a></li>
       <li class="breadcrumb-item active">myka package</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -85,27 +94,13 @@
              
   <section id="myka-package">
 <h1>myka package<a class="headerlink" href="#myka-package" title="Link to this heading"></a></h1>
-<dl class="py function" id="module-myka.measure">
-<dt class="sig sig-object py" id="myka.measure.submission_elapsed">
-<span class="sig-prename descclassname"><span class="pre">myka.measure.</span></span><span class="sig-name descname"><span class="pre">submission_elapsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">competition</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#myka.measure.submission_elapsed" title="Link to this definition"></a></dt>
-<dd><p>サブミットを行った時からの経過時間を計測します。
-idxには最新のサブミットから数えて何番目のサブミットかを指定します。
-idx = 0(default)の場合は最新のサブミットを指定します。</p>
-<dl class="field-list simple">
-<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>competition</strong> (<em>str</em>) -- コンペティション名</p></li>
-<li><p><strong>idx</strong> (<em>str</em>) -- サブミット番号 (default: 0)</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function" id="module-myka">
+<section id="module-myka">
+<span id="myka-module"></span><h2>myka module<a class="headerlink" href="#module-myka" title="Link to this heading"></a></h2>
+<dl class="py function">
 <dt class="sig sig-object py" id="myka.create_datasets">
 <span class="sig-prename descclassname"><span class="pre">myka.</span></span><span class="sig-name descname"><span class="pre">create_datasets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">userid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#myka.create_datasets" title="Link to this definition"></a></dt>
-<dd><p>kaggle datasetを作成します。データセットはprivateの状態で作成されます。
-バージョンの更新については現在未対応です。</p>
+<dd><p>kaggle datasetを作成します。データセットはprivateの状態で作成されます。</p>
+<p>バージョンの更新については未対応です。</p>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -119,8 +114,8 @@ idx = 0(default)の場合は最新のサブミットを指定します。</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="myka.download_comp_datasets">
 <span class="sig-prename descclassname"><span class="pre">myka.</span></span><span class="sig-name descname"><span class="pre">download_comp_datasets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">comp_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/kaggle/input'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#myka.download_comp_datasets" title="Link to this definition"></a></dt>
-<dd><p>指定したコンペティションのデータセットをダウンロードします。
-データセットはzipファイルでダウンロード後に解凍して格納されます。
+<dd><p>指定したコンペティションのデータセットをダウンロードします。</p>
+<p>データセットはzipファイルでダウンロード後に解凍して格納されます。
 comp_nameはコンペティションのURLの末尾にある文字列です。</p>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
@@ -135,8 +130,8 @@ comp_nameはコンペティションのURLの末尾にある文字列です。</
 <dl class="py function">
 <dt class="sig sig-object py" id="myka.download_datasets">
 <span class="sig-prename descclassname"><span class="pre">myka.</span></span><span class="sig-name descname"><span class="pre">download_datasets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/kaggle/input'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#myka.download_datasets" title="Link to this definition"></a></dt>
-<dd><p>kaggle datasetをダウンロードします。
-dataset_idは&lt;owner&gt;/&lt;dataset-name&gt;の形式で指定します。
+<dd><p>kaggle datasetをダウンロードします。</p>
+<p>dataset_idは&lt;owner&gt;/&lt;dataset-name&gt;の形式で指定します。
 &lt;owner&gt;/&lt;dataset-name&gt;はダウンロードしたいデータセットのURLの末尾にある文字列です。</p>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
@@ -151,8 +146,8 @@ dataset_idは&lt;owner&gt;/&lt;dataset-name&gt;の形式で指定します。
 <dl class="py function">
 <dt class="sig sig-object py" id="myka.init">
 <span class="sig-prename descclassname"><span class="pre">myka.</span></span><span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kaggle_json_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#myka.init" title="Link to this definition"></a></dt>
-<dd><p>各関数を使うための前準備を行います。
-kaggleから取得したkaggle.jsonを~/.kaggleにコピーし、権限を600に設定します。
+<dd><p>各関数を使うための前準備を行います。</p>
+<p>kaggleから取得したkaggle.jsonを~/.kaggleにコピーし、権限を600に設定します。
 kaggle.jsonを~/.kaggleにコピーし、権限を600に設定します。</p>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
@@ -164,7 +159,7 @@ kaggle.jsonを~/.kaggleにコピーし、権限を600に設定します。</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="myka.pull_model">
 <span class="sig-prename descclassname"><span class="pre">myka.</span></span><span class="sig-name descname"><span class="pre">pull_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/kaggle/input/'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#myka.pull_model" title="Link to this definition"></a></dt>
-<dd><p>kaggle modelをダウンロードする</p>
+<dd><p>kaggle modelをダウンロードします。</p>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -178,8 +173,8 @@ kaggle.jsonを~/.kaggleにコピーし、権限を600に設定します。</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="myka.pull_notebook">
 <span class="sig-prename descclassname"><span class="pre">myka.</span></span><span class="sig-name descname"><span class="pre">pull_notebook</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kernel_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'/kaggle/reference/'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#myka.pull_notebook" title="Link to this definition"></a></dt>
-<dd><p>public notebookをダウンロードします。
-kernel_idは&lt;owner&gt;/&lt;kernel-name&gt;の形式で指定します。
+<dd><p>public notebookをダウンロードします。</p>
+<p>kernel_idは&lt;owner&gt;/&lt;kernel-name&gt;の形式で指定します。
 &lt;owner&gt;/&lt;kernel-name&gt;はダウンロードしたいnotebookのURLの末尾にある文字列です。</p>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
@@ -194,7 +189,7 @@ kernel_idは&lt;owner&gt;/&lt;kernel-name&gt;の形式で指定します。
 <dl class="py function">
 <dt class="sig sig-object py" id="myka.push_notebook">
 <span class="sig-prename descclassname"><span class="pre">myka.</span></span><span class="sig-name descname"><span class="pre">push_notebook</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">userid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">notebook_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datasets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_suffix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#myka.push_notebook" title="Link to this definition"></a></dt>
-<dd><p>notebookをkaggleにプッシュします。notebookはprivateの状態でプッシュされます。</p>
+<dd><p>notebookをkaggleにprivateの状態でプッシュします。</p>
 <p>datasetsにはnotebookにアタッチするデータセットのリストを指定します。
 datasetsの要素は&lt;owner&gt;/&lt;dataset-name&gt;の形式で指定します。
 &lt;owner&gt;/&lt;dataset-name&gt;はアタッチしたいデータセットのURLの末尾にある文字列です。</p>
@@ -216,8 +211,8 @@ random_suffixにはランダムなサフィックス（notebookファイル名�
 <dl class="py function">
 <dt class="sig sig-object py" id="myka.submission">
 <span class="sig-prename descclassname"><span class="pre">myka.</span></span><span class="sig-name descname"><span class="pre">submission</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">comp_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'submission'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#myka.submission" title="Link to this definition"></a></dt>
-<dd><p>csv submission competitionでcsvファイルを提出します。
-code competitionでは使用できません。</p>
+<dd><p>csv submission competitionでcsvファイルを提出します。</p>
+<p>code competitionでは使用できません。</p>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -230,12 +225,39 @@ code competitionでは使用できません。</p>
 </dd></dl>
 
 </section>
+<section id="module-myka.measure">
+<span id="myka-measure-module"></span><h2>myka.measure module<a class="headerlink" href="#module-myka.measure" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="myka.measure.submission_elapsed">
+<span class="sig-prename descclassname"><span class="pre">myka.measure.</span></span><span class="sig-name descname"><span class="pre">submission_elapsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">competition</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#myka.measure.submission_elapsed" title="Link to this definition"></a></dt>
+<dd><p>サブミットを行った時からの経過時間を計測します。</p>
+<p>idxには最新のサブミットから数えて何番目のサブミットかを指定します。
+idx = 0(default)の場合は最新のサブミットを指定します。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>competition</strong> (<em>str</em>) -- コンペティション名</p></li>
+<li><p><strong>idx</strong> (<em>str</em>) -- サブミット番号 (default: 0)</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>~/.kaggle/kaggle.json が存在しない状態で実行するとエラーが発生します。</p>
+<p>myka.init() を実行して kaggle.json を ~/.kaggle に配置してから実行してください。</p>
+</div>
+<p class="rubric">参照</p>
+<p>ref: <a class="reference external" href="https://zenn.dev/currypurin/scraps/47d5f84a0ca89d">https://zenn.dev/currypurin/scraps/47d5f84a0ca89d</a></p>
+</dd></dl>
+
+</section>
+</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="my_kaggle_util documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="modules.html" class="btn btn-neutral float-left" title="myka" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

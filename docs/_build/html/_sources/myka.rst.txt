@@ -12,18 +12,18 @@ myka package
 ..    :undoc-members:
 ..    :show-inheritance:
 
-.. myka.measure module
-.. -------------------
+myka module
+---------------
 
-.. automodule:: myka.measure
+.. automodule:: myka
    :members:
    :undoc-members:
    :show-inheritance:
 
-.. Module contents
-.. ---------------
+myka.measure module
+-------------------
 
-.. automodule:: myka
+.. automodule:: myka.measure
    :members:
    :undoc-members:
    :show-inheritance:
