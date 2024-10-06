@@ -1,3 +1,7 @@
+[build-system]
+requires = ['setuptools>=61']
+build-backend = 'setuptools.build_meta'
+
 [project]
 name = "kaggul"
 version = "0.1"
@@ -5,6 +9,15 @@ readme = 'README.md'
 requires-python = '>=3.9'
 license = {file = 'LICENSE'}
 authors = [{name = 'Kazuki Negita', email = 'welshonionman@gmail.com'}]
-dynamic = ["dependencies"]
-[tool.setuptools.dynamic]
-dependencies = {file = ["requirements.txt"]}
+dependencies = [
+    "kaggle"
+]
+
+[project.optional-dependencies]
+dev = [
+    "sphinx",
+    "sphinx_rtd_theme",
+    "sphinx_fontawesome",
+    "sphinx-autobuild",
+    "myst_parser",
+]

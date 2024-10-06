@@ -1,6 +1,0 @@
-kaggle
-sphinx
-sphinx_rtd_theme
-sphinx_fontawesome
-sphinx-autobuild
-myst_parser
