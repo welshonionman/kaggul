@@ -1,5 +1,5 @@
 [project]
-name = "my_kaggle_util"
+name = "kaggul"
 version = "0.1"
 readme = 'README.md'
 requires-python = '>=3.9'
