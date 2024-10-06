@@ -12,7 +12,7 @@ import sphinx_fontawesome
 import sphinx_rtd_theme
 
 sys.path.insert(0, os.path.abspath("../"))
-project = "my_kaggle_util"
+project = "kaggle_util"
 copyright = "2024, Kazuki Negita"
 author = "Kazuki Negita"
 release = "0.0.1"

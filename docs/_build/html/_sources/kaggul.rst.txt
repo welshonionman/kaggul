@@ -1,29 +1,29 @@
-myka package
-============
+kaggul package
+==============
 
 .. Submodules
 .. ----------
 
-.. myka.kaggle\_util module
+.. kaggul.kaggle\_util module
 .. ------------------------
 
-.. .. automodule:: myka.kaggle_util
+.. .. automodule:: kaggul.kaggle_util
 ..    :members:
 ..    :undoc-members:
 ..    :show-inheritance:
 
-myka module
----------------
+kaggul module
+-----------------
 
-.. automodule:: myka
+.. automodule:: kaggul
    :members:
    :undoc-members:
    :show-inheritance:
 
-myka.measure module
--------------------
+kaggul.measure module
+---------------------
 
-.. automodule:: myka.measure
+.. automodule:: kaggul.measure
    :members:
    :undoc-members:
    :show-inheritance:
