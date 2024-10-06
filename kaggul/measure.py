@@ -17,7 +17,7 @@ def submission_elapsed(competition: str, idx: str = 0) -> None:
     Note:
         ~/.kaggle/kaggle.json が存在しない状態で実行するとエラーが発生します。
 
-        myka.init() を実行して kaggle.json を ~/.kaggle に配置してから実行してください。
+        kaggul.init() を実行して kaggle.json を ~/.kaggle に配置してから実行してください。
 
     References:
         ref: https://zenn.dev/currypurin/scraps/47d5f84a0ca89d

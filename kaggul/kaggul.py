@@ -86,7 +86,7 @@ def create_datasets(userid: str, folder: str) -> None:
     title = folder.rstrip("/").split("/")[-1].replace("_", "-")
     print(title)
 
-    with pkg_resources.open_text("myka.template", "dataset-metadata.json") as js:
+    with pkg_resources.open_text("kaggul.template", "dataset-metadata.json") as js:
         dict_json = json.load(js)
     dict_json["title"] = title
     dict_json["id"] = f"{userid}/{title}"
@@ -143,7 +143,7 @@ def push_notebook(
     fname = Path(notebook_path)
     rand = random.randint(1000, 9999) if random_suffix else ""
 
-    with pkg_resources.open_text("myka.template", "kernel-metadata.json") as js:
+    with pkg_resources.open_text("kaggul.template", "kernel-metadata.json") as js:
         dict_json = json.load(js)
 
     dict_json["id"] = f"{userid}/{fname.stem}{rand}"

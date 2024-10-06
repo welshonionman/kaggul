@@ -1,4 +1,4 @@
-from myka.kaggle_util import (
+from kaggul.kaggul import (
     create_datasets,
     download_comp_datasets,
     download_datasets,
