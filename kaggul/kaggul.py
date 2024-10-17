@@ -16,10 +16,10 @@ def init(kaggle_json_path: str) -> None:
     Args:
         kaggle_json_path (str): kaggle.jsonのパス
     """
-
-    os.makedirs("~/.kaggle", exist_ok=True)
-    shutil.copy(kaggle_json_path, "~/.kaggle")
-    os.chmod("~/.kaggle/kaggle.json", 0o600)
+    kaggle_dir = os.path.expanduser("~/.kaggle")
+    os.makedirs(kaggle_dir, exist_ok=True)
+    shutil.copy(kaggle_json_path, kaggle_dir)
+    os.chmod(f"{kaggle_dir}/kaggle.json", 0o600)
 
 
 def __subprocess_run(command: str) -> None:
