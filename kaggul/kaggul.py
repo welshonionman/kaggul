@@ -49,7 +49,7 @@ def download_comp_datasets(comp_name: str, save_dir: str = "/kaggle/input") -> N
     """
 
     __subprocess_run(
-        f"kaggle competitions download {comp_name} --path {save_dir}/{comp_name}/"
+        f"kaggle competitions download '{comp_name}' --path '{save_dir}/{comp_name}/'"
     )
 
     shutil.unpack_archive(
@@ -70,7 +70,7 @@ def download_datasets(dataset_id: str, save_dir: str = "/kaggle/input") -> None:
     """
     dataset_name = dataset_id.split("/")[1]
     __subprocess_run(
-        f"kaggle datasets download {dataset_id} --unzip --quiet --path {save_dir}/{dataset_name}"
+        f"kaggle datasets download '{dataset_id}' --unzip --quiet --path '{save_dir}/{dataset_name}'"
     )
 
 
@@ -94,7 +94,7 @@ def create_datasets(userid: str, folder: str) -> None:
     with open(f"{folder}/dataset-metadata.json", "w") as js:
         json.dump(dict_json, js, indent=4)
 
-    __subprocess_run(f"kaggle datasets create -p {folder} --quiet --dir-mode zip")
+    __subprocess_run(f"kaggle datasets create -p '{folder}' --quiet --dir-mode zip")
     os.remove(f"{folder}/dataset-metadata.json")
 
 
@@ -111,7 +111,7 @@ def pull_notebook(kernel_id: str, save_dir: str = "/kaggle/reference/") -> None:
     os.makedirs(save_dir, exist_ok=True)
     kernel_name = kernel_id.rstrip("/").split("/")[-1]
 
-    __subprocess_run(f"kaggle kernels pull {kernel_id} --path /tmp")
+    __subprocess_run(f"kaggle kernels pull '{kernel_id}' --path /tmp")
 
     shutil.move(f"/tmp/{kernel_name}.ipynb", f"{save_dir}/{kernel_name}.ipynb")
 
@@ -180,7 +180,7 @@ def pull_model(url: str, save_dir: str = "/kaggle/input/") -> None:
     print(save_path)
 
     __subprocess_run(
-        f"kaggle models instances versions download {model} --untar -p {save_path}"
+        f"kaggle models instances versions download '{model}' --untar -p '{save_path}'"
     )
 
 
@@ -195,5 +195,5 @@ def submission(comp_name: str, file_path: str, description: str = "submission") 
         description (str): 提出ファイルの説明 (default: "submission")
     """
     __subprocess_run(
-        f"kaggle competitions submit {comp_name} -f {file_path} -m {description}"
+        f"kaggle competitions submit '{comp_name}' -f '{file_path}' -m '{description}'"
     )
