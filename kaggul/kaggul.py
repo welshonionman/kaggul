@@ -15,6 +15,7 @@ def init(kaggle_json_path: str) -> None:
 
     Args:
         kaggle_json_path (str): kaggle.jsonのパス
+
     """
     kaggle_dir = os.path.expanduser("~/.kaggle")
     os.makedirs(kaggle_dir, exist_ok=True)
@@ -29,12 +30,11 @@ def __subprocess_run(command: str) -> None:
             shell=True,
             check=True,
             text=True,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
+            capture_output=True,
         )
     except subprocess.CalledProcessError as e:
         print(e.stderr)
-        raise RuntimeError()
+        raise RuntimeError() from e
 
 
 def download_comp_datasets(comp_name: str, save_dir: str = "/kaggle/input") -> None:
@@ -46,6 +46,7 @@ def download_comp_datasets(comp_name: str, save_dir: str = "/kaggle/input") -> N
     Args:
         comp_name (str): コンペティション名
         save_dir (str): 保存先ディレクトリ (default: /kaggle/input)
+
     """
 
     __subprocess_run(
@@ -67,6 +68,7 @@ def download_datasets(dataset_id: str, save_dir: str = "/kaggle/input") -> None:
     Args:
         dataset_id (str): データセットID
         save_dir (str): 保存先ディレクトリ (default: /kaggle/input)
+
     """
     dataset_name = dataset_id.split("/")[1]
     __subprocess_run(
@@ -82,6 +84,7 @@ def create_datasets(userid: str, folder: str) -> None:
     Args:
         userid (str): kaggle ID
         folder (str): データセットのディレクトリ
+
     """
     title = folder.rstrip("/").split("/")[-1].replace("_", "-")
     print(title)
@@ -107,6 +110,7 @@ def pull_notebook(kernel_id: str, save_dir: str = "/kaggle/reference/") -> None:
     Args:
         kernel_id (str): notebookのID <owner>/<kernel-name>
         save_dir (str): 保存先ディレクトリ (default: /kaggle/reference)
+
     """
     os.makedirs(save_dir, exist_ok=True)
     kernel_name = kernel_id.rstrip("/").split("/")[-1]
@@ -138,6 +142,7 @@ def push_notebook(
         datasets (list[str | None]): データセットのリスト [<owner>/<dataset-name>, ...]
         comp (str): コンペティション名
         random_suffix (bool): ランダムなサフィックスをつけるかどうか
+
     """
     shutil.copy(notebook_path, "/tmp/tmp.ipynb")
     fname = Path(notebook_path)
@@ -165,6 +170,7 @@ def pull_model(url: str, save_dir: str = "/kaggle/input/") -> None:
     Args:
         url (str): モデルのURL
         save_dir (str): モデルの保存先ディレクトリ (default: /kaggle/input)
+
     """
 
     owner = url.split("/")[4].lower()
@@ -193,6 +199,7 @@ def submission(comp_name: str, file_path: str, description: str = "submission") 
         comp_name (str): コンペティション名
         file_path (str): 提出ファイルのパス
         description (str): 提出ファイルの説明 (default: "submission")
+
     """
     __subprocess_run(
         f"kaggle competitions submit '{comp_name}' -f '{file_path}' -m '{description}'"
