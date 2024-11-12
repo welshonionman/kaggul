@@ -40,7 +40,7 @@ def submission_elapsed(competition: str, idx: str = 0) -> None:
                 break
         status = result.status
 
-        now = datetime.datetime.now(timezone.utc).replace(tzinfo=None)
+        now = datetime.now(timezone.utc).replace(tzinfo=None)
         elapsed_time = int((now - submit_time).seconds / 60) + 1
         if status == "complete":
             print("\r" f"run-time: {elapsed_time} min, LB: {result.publicScore}")
