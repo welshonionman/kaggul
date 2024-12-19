@@ -1,4 +1,3 @@
-import importlib.resources as pkg_resources
 import json
 import os
 import random
@@ -91,13 +90,13 @@ def create_datasets(userid: str, folder: str, title: str | None = None) -> None:
         title = folder.rstrip("/").split("/")[-1].replace("_", "-")
     print(title)
 
-    with pkg_resources.open_text("kaggul.template", "dataset-metadata.json") as js:
-        dict_json = json.load(js)
-    dict_json["title"] = title
-    dict_json["id"] = f"{userid}/{title}"
+    metadata_dict = {}
+    metadata_dict["licenses"] = [{"name": "CC0-1.0"}]
+    metadata_dict["title"] = title
+    metadata_dict["id"] = f"{userid}/{title}"
 
     with open(f"{folder}/dataset-metadata.json", "w") as js:
-        json.dump(dict_json, js, indent=4)
+        json.dump(metadata_dict, js, indent=4)
 
     __subprocess_run(f"kaggle datasets create -p '{folder}' --quiet --dir-mode zip")
     os.remove(f"{folder}/dataset-metadata.json")
@@ -150,18 +149,22 @@ def push_notebook(
     fname = Path(notebook_path)
     rand = random.randint(1000, 9999) if random_suffix else ""
 
-    with pkg_resources.open_text("kaggul.template", "kernel-metadata.json") as js:
-        dict_json = json.load(js)
-
-    dict_json["id"] = f"{userid}/{fname.stem}{rand}"
-    dict_json["title"] = f"{fname.stem}{rand}"
-    dict_json["code_file"] = str(fname)
-    dict_json["competition_sources"] = comp
-    dict_json["dataset_sources"] = datasets
+    metadata_dict = {}
+    metadata_dict["id"] = f"{userid}/{fname.stem}{rand}"
+    metadata_dict["title"] = f"{fname.stem}{rand}"
+    metadata_dict["code_file"] = str(fname)
+    metadata_dict["language"] = "python"
+    metadata_dict["kernel_type"] = "notebook"
+    metadata_dict["is_private"] = "true"
+    metadata_dict["enable_gpu"] = "true"
+    metadata_dict["enable_internet"] = "false"
+    metadata_dict["dataset_sources"] = datasets
+    metadata_dict["competition_sources"] = comp
+    metadata_dict["kernel_sources"] = []
 
     os.chdir("/tmp")
     with open("/tmp/kernel-metadata.json", "w") as js:
-        json.dump(dict_json, js, indent=4)
+        json.dump(metadata_dict, js, indent=4)
     __subprocess_run("kaggle kernels push")
     os.remove("/tmp/kernel-metadata.json")
 
