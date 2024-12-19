@@ -76,7 +76,7 @@ def download_datasets(dataset_id: str, save_dir: str = "/kaggle/input") -> None:
     )
 
 
-def create_datasets(userid: str, folder: str) -> None:
+def create_datasets(userid: str, folder: str, title: str | None = None) -> None:
     """kaggle datasetを作成します。データセットはprivateの状態で作成されます。
 
     バージョンの更新については未対応です。
@@ -84,9 +84,11 @@ def create_datasets(userid: str, folder: str) -> None:
     Args:
         userid (str): kaggle ID
         folder (str): データセットのディレクトリ
-
+        title (str | None): データセットのタイトル。指定しない場合はfolderの末尾のディレクトリ名がタイトルとして使用されます。
+                           ディレクトリ名のアンダースコア(_)はハイフン(-)に置換されます。(default: None)
     """
-    title = folder.rstrip("/").split("/")[-1].replace("_", "-")
+    if title is None:
+        title = folder.rstrip("/").split("/")[-1].replace("_", "-")
     print(title)
 
     with pkg_resources.open_text("kaggul.template", "dataset-metadata.json") as js:

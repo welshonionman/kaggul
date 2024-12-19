@@ -98,7 +98,7 @@
 <span id="kaggul-module"></span><h2>kaggul module<a class="headerlink" href="#module-kaggul" title="Link to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="kaggul.create_datasets">
-<span class="sig-prename descclassname"><span class="pre">kaggul.</span></span><span class="sig-name descname"><span class="pre">create_datasets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">userid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#kaggul.create_datasets" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">kaggul.</span></span><span class="sig-name descname"><span class="pre">create_datasets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">userid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#kaggul.create_datasets" title="Link to this definition"></a></dt>
 <dd><p>kaggle datasetを作成します。データセットはprivateの状態で作成されます。</p>
 <p>バージョンの更新については未対応です。</p>
 <dl class="field-list simple">
@@ -106,6 +106,8 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>userid</strong> (<em>str</em>) -- kaggle ID</p></li>
 <li><p><strong>folder</strong> (<em>str</em>) -- データセットのディレクトリ</p></li>
+<li><p><strong>title</strong> (<em>str</em><em> | </em><em>None</em>) -- データセットのタイトル。指定しない場合はfolderの末尾のディレクトリ名がタイトルとして使用されます。
+ディレクトリ名のアンダースコア(_)はハイフン(-)に置換されます。(default: None)</p></li>
 </ul>
 </dd>
 </dl>
